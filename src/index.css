@@ -2,3 +2,15 @@ body, html {
     height: 100%;
     background: pink;
 }
+.banner {
+    width: 200px;
+    height: 200px;
+    background-image: url('./images/01.jpeg');
+    background-size: cover;
+}
+.item {
+    width: 200px;
+    height: 200px;
+    background-image: url('./images/02.jpg');
+    background-size: cover;
+}

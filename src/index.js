@@ -10,7 +10,8 @@
    	 		生产环境和开发环境将ES6的模块编译成浏览器能识别的模块
    	 		生产环境比开发环境多一个js压缩
  */
-// import './index.css'
+import './index.css'
+import './index.less'
 import data from './data.json'
 console.log(data)
 
