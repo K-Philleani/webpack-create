@@ -38,14 +38,20 @@ module.exports = { // webpack配置
 					options: { // 相应的配置
 						limit: 8 * 1024, // 当图片size小于8Kb，就会用base64处理(优点：减少请求数量，缺点：图片体积会变大)
 						esModule: false, // 问题: 可能会出现src引入[Object Module]的问题；因为url-loader默认使用es6模块化解析，html-loader使用commonJS引入图片，解决办法：关闭url-loader的es6模块化没使用commonJS
-						name: '[hash:10].[ext]' // 给图片重命名 [hash:10]:取图片hash值得前10位, [ext]:取文件的原来的扩展名
+						name: '[hash:4].[ext]' // 给图片重命名 [hash:10]:取图片hash值得前10位, [ext]:取文件的原来的扩展名
 					} 
-				}]
-				
+				}],
 			},
 			{
 				test: /\.html$/, // 处理HTML文件中的img图片
 				loader: 'html-loader',  // use: [{loader: 'html-loader'}]的简写
+			},
+			{ // 打包其他资源
+				exclude: /\.(css|less|js|html|json)$/, // 排除对应的资源
+				loader: 'file-loader',
+				options: {
+					name: '[hash:8].[ext]' // options选项应该写在use里，但是 use: [{loader: ''}]简写时，可以与loader写在同级
+				}
 			}
 		]
 	},

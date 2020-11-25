@@ -12,6 +12,7 @@
  */
 import './index.css'
 import './index.less'
+import './font/iconfont.css'
 import data from './data.json'
 console.log(data)
 
